@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Dual Sidebar Layout</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .left-sidebar {
+        min-height: 100vh;
+        width: 250px;
+        position: fixed;
+        left: 0;
+        top: 0;
+      }
+
+      .right-sidebar {
+        min-height: 100vh;
+        width: 300px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        background-color: #f8f9fa;
+        border-left: 1px solid #dee2e6;
+        padding: 20px;
+      }
+
+      .sidebar-link {
+        padding: 10px 15px;
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .sidebar-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+
+      .main-content {
+        margin-left: 250px;
+        margin-right: 300px;
+      }
+
+      .logo-container {
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .logo {
+        width: 120px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.9);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        color: #212529;
+        font-weight: bold;
+      }
+
+      .date-text {
+        color: #6c757d;
+        font-size: 0.875rem;
+      }
+
+      .header-container {
+        background-color: #fff;
+        padding: 20px;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .search-container {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex">
+      <!-- Left Sidebar -->
+      <div class="left-sidebar bg-dark" id="sidebar">
+        <!-- Logo -->
+        <div class="logo-container">
+          <div class="logo">LOGO</div>
+        </div>
+        <div class="nav flex-column mt-3">
+          <a href="#" class="sidebar-link">
+            <i class="bi bi-house-door fs-5"></i>
+            <span>Beranda</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <i class="bi bi-people fs-5"></i>
+            <span>Pengguna</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <i class="bi bi-calendar fs-5"></i>
+            <span>Jadwal</span>
+          </a>
+          <a href="#" class="sidebar-link">
+            <i class="bi bi-gear fs-5"></i>
+            <span>Pengaturan</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content flex-grow-1">
+        <!-- Header with Title, Date, and Search -->
+        <div class="header-container">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              <h1 class="mb-1">Dashboard</h1>
+              <div class="date-text">
+                <i class="bi bi-calendar3"></i>
+                <span id="current-date"></span>
+              </div>
+            </div>
+            <div class="search-container">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Cari..." />
+                <button class="btn btn-outline-secondary" type="button">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rest of the content -->
+        <div class="p-3">
+          <!-- Your main content goes here -->
+        </div>
+      </div>
+
+      <!-- Right Sidebar -->
+      <div class="right-sidebar">
+        <h5>Right Sidebar</h5>
+        <p>This is right sidebar content.</p>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS dan Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Set current date
+      const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      const currentDate = new Date().toLocaleDateString("id-ID", options);
+      document.getElementById("current-date").textContent = currentDate;
+    </script>
+  </body>
+</html>
